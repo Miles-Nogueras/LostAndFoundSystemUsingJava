@@ -108,20 +108,6 @@ public class LostAndFoundSystem {
             
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static void reportItemFound(){
          Scanner scanner = new Scanner(System.in);
 
@@ -149,8 +135,6 @@ public class LostAndFoundSystem {
 
         System.out.println("What details on the item/s could identify its owner (e.g., a name, ID, initials, or contact number)? Type N/A if there are none: ");
         identifyOwner = scanner.nextLine();
-
-
 
         System.out.println("Where did you find the item/s?(e.g., Near Lover's Lane, Near Heroes' Park, Federizo hall 2f, at gate 2) ");
         placeOfItem = scanner.nextLine();
@@ -254,8 +238,6 @@ public class LostAndFoundSystem {
             System.out.println("Invalid answer. Please enter yes or no.");
         }
     }
-
-    
 
     public static void seeItemStatus(){
 
