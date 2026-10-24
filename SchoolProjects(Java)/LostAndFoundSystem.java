@@ -193,13 +193,283 @@ public class LostAndFoundSystem {
 
     public static void claimItem(){
 
+        Scanner scanner = new Scanner(System.in);
+
+        String foundItem = "", foundPlace = "", foundMarks = "", foundStatus = "NO REPORT";
+        String claimantName = "", claimantContact = "", claimDetails = "", claimStatus = "NO CLAIM REQUEST";
+        String answer;
+
+
+        System.out.println("\n===== CLAIM AN ITEM =====");
+
+        if (foundStatus.equals("NO REPORT")){
+            System.out.println("No found item has been reported yet.");
+            return;
+        }
+
+        if (foundStatus.equals("CLAIM REQUESTED")) {
+            System.out.println("A claim request already exists.");
+            System.out.println("Status: " + claimStatus);
+            return;
+        }
+
+        if (foundStatus.equals("CLAIMED")) {
+            System.out.println("This item has already been claimed.");
+            return;
+        }
+
+        System.out.println("Item: " + foundItem);
+        System.out.println("Place found: " + foundPlace);
+        System.out.println("Distinguishing marks/Features of the items : " + foundMarks);
+
+        System.out.print("Is this your item? (yes/no): ");
+        answer = scanner.nextLine();
+
+        if (answer.equalsIgnoreCase("yes")) {
+
+            System.out.print("Your full name: ");
+            claimantName = scanner.nextLine();
+
+            System.out.print("Your contact number: ");
+            claimantContact = scanner.nextLine();
+
+            System.out.print("Details to prove ownership: ");
+            claimDetails = scanner.nextLine();
+
+            foundStatus = "CLAIM REQUESTED";
+            claimStatus = "WAITING FOR STAFF VERIFICATION";
+
+            System.out.println("\nClaim request submitted!");
+            System.out.println("Claimant: " + claimantName);
+            System.out.println("Item: " + foundItem);
+            System.out.println("Status: " + claimStatus);
+            System.out.println("Please coordinate with the Local Student Council.");
+
+        } else if (answer.equalsIgnoreCase("no")) {
+
+            System.out.println("Claim cancelled.");
+
+        } else {
+
+            System.out.println("Invalid answer. Please enter yes or no.");
+        }
     }
 
+    
+
     public static void seeItemStatus(){
+
+        String foundItem = "", foundPlace = "", foundMarks = "", foundStatus = "NO REPORT", foundName = "";
+    String claimantName = "", claimantContact = "", claimDetails = "", claimStatus = "NO CLAIM REQUEST";
+    String lostStatus = "", lostItem = "", lostName = "", lostPlace = "";
+
+    System.out.println("\n===== CHECK ITEM STATUS =====");
+
+    System.out.println("\n--- Lost Item ---");
+
+    if (lostStatus.equals("NO REPORT")) {
+        System.out.println("No lost item report available.");
+    } else {
+        System.out.println("Item: " + lostItem);
+        System.out.println("Reported by: " + lostName);
+        System.out.println("Last seen: " + lostPlace);
+        System.out.println("Status: " + lostStatus);
+    }
+
+    System.out.println("\n--- Found Item ---");
+
+    if (foundStatus.equals("NO REPORT")) {
+        System.out.println("No found item report available.");
+    } else {
+        System.out.println("Item: " + foundItem);
+        System.out.println("Found at: " + foundPlace);
+        System.out.println("Reported by: " + foundName);
+        System.out.println("Status: " + foundStatus);
+    }
+
+    System.out.println("\n--- Claim Request ---");
+
+    if (claimStatus.equals("NO CLAIM REQUEST")) {
+        System.out.println("No claim request submitted.");
+    } else {
+        System.out.println("Claimant: " + claimantName);
+        System.out.println("Contact: " + claimantContact);
+        System.out.println("Details: " + claimDetails);
+        System.out.println("Status: " + claimStatus);
+    }
+
+    if (!lostStatus.equals("NO REPORT")
+            && !foundStatus.equals("NO REPORT")) {
+
+        if (lostItem.equalsIgnoreCase(foundItem)) {
+            System.out.println("\nPossible match: Item names are the same.");
+            System.out.println("Staff must verify the actual item.");
+        } else {
+            System.out.println("\nNo match based on item names.");
+        }
+     }
 
     }
 
     public static void viewSocialMediaPagesOfOrgs(){
+
+         Scanner scanner = new Scanner (System.in);
+    
+        int chooseOrgs;
+         int collegeChoice;
+
+            do {
+            System.out.println("\n===== STUDENT COUNCILS AND GOVERNMENT =====");
+            System.out.println("1. Local Student Council (LSC)");
+            System.out.println("2. Student Government (SG)");
+            System.out.println("3. Return to Main Menu");
+            System.out.print("Choose an option: ");
+            chooseOrgs = scanner.nextInt();
+
+                switch (chooseOrgs) {
+                    case 1:
+                    System.out.println("\n===== LOCAL STUDENT COUNCIL =====");
+                    System.out.println("1. College of Information and Communication Technology (CICT)");
+                    System.out.println("2. College of Hospitality and Tourism Management (CHTM)");
+                    System.out.println("3. College of Science (CS)");
+                    System.out.println("4. College of Professional Teacher Education (CPTED)");
+                    System.out.println("5. College of Architecture and Fine Arts (CAFA)");
+                    System.out.println("6. College of Arts and Letters (CAL)");
+                    System.out.println("7. College of Business Education and Accountancy (CBEA)");
+                    System.out.println("8. College of Criminal Justice Education (CCJE)");
+                    System.out.println("9. College of Industrial Technology (CIT)");
+                    System.out.println("10. College of Law (CLaw)");
+                    System.out.println("11. College of Nursing (CN)");
+                    System.out.println("12. College of Engineering (COE)");
+                    System.out.println("13. College of Sports, Exercise and Recreation (CSER)");
+                    System.out.println("14. College of Social Sciences and Philosophy (CSSP)");
+                    System.out.println("15. Laboratory High School (LHS)");
+                    System.out.print("Choose a college: ");
+                    collegeChoice = scanner.nextInt();
+
+                        if (collegeChoice == 1) {
+                        System.out.println("\nCollege of Information and Communication Technology (CICT)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/CICTLSCofficialpage");
+                        System.out.println("Email: bulsu.cictlsc@gmail.com");
+
+                        } else if (collegeChoice == 2) {
+                        System.out.println("\nCollege of Hospitality and Tourism Management (CHTM)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/CHTMLSC");
+                        System.out.println("Email: chtmlsc2526@gmail.com");
+
+                        } else if (collegeChoice == 3) {
+                        System.out.println("\nCollege of Science (CS)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/BulSUSG.CSLSC");
+                        System.out.println("Email: cslsc.bulsusg@gmail.com");
+
+                        } else if (collegeChoice == 4) {
+                        System.out.println("\nCollege of Professional Teacher Education (CPTED)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/BulSUCPTEDLSC");
+                        System.out.println("Email: coedlsc.bulsu@gmail.com");
+
+                        } else if (collegeChoice == 5) {
+                        System.out.println("\nCollege of Architecture and Fine Arts (CAFA)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/BulSUCAFALSC");
+                        System.out.println("Email: bulsucafalsc@gmail.com");
+
+                        } else if (collegeChoice == 6) {
+                        System.out.println("\nCollege of Arts and Letters (CAL)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/callsc.bulsu");
+                        System.out.println("Email: callsc.bulsu@gmail.com");
+
+                        } else if (collegeChoice == 7) {
+                        System.out.println("\nCollege of Business Education and Accountancy (CBEA)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/BulSUCBEALSC");
+                        System.out.println("Email: bulsucbealsc@gmail.com");
+
+                        } else if (collegeChoice == 8) {
+                        System.out.println("\nCollege of Criminal Justice Education (CCJE)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/CCJELSCOfficialPage");
+                        System.out.println("Email: bulsuccjelsc@gmail.com");
+
+                        } else if (collegeChoice == 9) {
+                        System.out.println("\nCollege of Industrial Technology (CIT)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/BulSUCITLSC");
+                        System.out.println("Email: bulsu.cit.lsc2627@gmail.com");
+
+                        } else if (collegeChoice == 10) {
+                        System.out.println("\nCollege of Law (CLaw)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/lsg.bulsu");
+                        System.out.println("Email: [Official Email]");
+
+                        } else if (collegeChoice == 11) {
+                        System.out.println("\nCollege of Nursing (CN)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/BulSUCONLSC");
+                        System.out.println("Email: bulsuconlsc2024@gmail.com");
+
+                        } else if (collegeChoice == 12) {
+                        System.out.println("\nCollege of Engineering (COE)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/BulSUCOELSC");
+                        System.out.println("Email: bulsuengineerlsc@gmail.com");
+
+                        } else if (collegeChoice == 13) {
+                        System.out.println("\nCollege of Sports, Exercise and Recreation (CSER)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/CserLSC");
+                        System.out.println("Email: [Official Email]");
+
+                        } else if (collegeChoice == 14) {
+                        System.out.println("\nCollege of Social Sciences and Philosophy (CSSP)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/cssplsc.bulsusg");
+                        System.out.println("Email: cssp.bulsusg@gmail.com");
+
+                        } else if (collegeChoice == 15) {
+                        System.out.println("\nLaboratory High School (LHS)");
+                        System.out.println("\n--- OFFICIAL CONTACT DETAILS ---");
+                        System.out.println("Facebook: https://www.facebook.com/bulsulhslocalstudentcouncil");
+                        System.out.println("Email: bulsulhslocalstudentcouncil@gmail.com");
+
+                        } else {
+                        System.out.println("Invalid choice. Please try again.");
+                        }
+
+                    if (collegeChoice >= 1 && collegeChoice <= 15) {
+                    System.out.println("\nIf you have questions or concerns, you may contact the organization through its official social media pages.");
+                    System.out.println("Please make sure to contact the official page of the organization.");
+                }
+
+                    break;
+
+                case 2:
+                    System.out.println("\n===== STUDENT GOVERNMENT =====");
+                    System.out.println("Facebook: https://www.facebook.com/BulSUSG2026");
+                    System.out.println("Email: studentgovernment@bulsu.edu.ph");
+                    System.out.println(
+                    "If you have questions or concerns, you may contact "
+                    + "the Student Government through its official social media pages."
+                );
+                System.out.println(
+                    "Please make sure to contact the official page of the organization."
+                );
+                break;
+
+                case 3:
+                    System.out.println("Returning to Main Menu...");
+                    break;
+
+                default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+
+    } while (chooseOrgs != 3);
 
     }
 
