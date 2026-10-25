@@ -27,14 +27,10 @@ public class LostAndFoundSystem {
                 break;
             
             case 4:
-                seeItemStatus();
-                break;
-            
-            case 5:
                 viewSocialMediaPagesOfOrgs();
                 break;
             
-            case 6:
+            case 5:
                 exitSystem();
                 break;
             
@@ -179,118 +175,38 @@ public class LostAndFoundSystem {
 
         Scanner scanner = new Scanner(System.in);
 
-        String foundItem = "", foundPlace = "", foundMarks = "", foundStatus = "NO REPORT";
-        String claimantName = "", claimantContact = "", claimDetails = "", claimStatus = "NO CLAIM REQUEST";
-        String answer;
-
+        String name, college, progAndSec;
+        String claimedItem, claimingDate;
 
         System.out.println("\n===== CLAIM AN ITEM =====");
+        System.out.println("Would you like to claim an item?");
+        System.out.println("Please fill in the details below.");
+        System.out.println("=====================================================");
 
-        if (foundStatus.equals("NO REPORT")){
-            System.out.println("No found item has been reported yet.");
-            return;
-        }
+        System.out.print("Name: ");
+        name = scanner.nextLine();
 
-        if (foundStatus.equals("CLAIM REQUESTED")) {
-            System.out.println("A claim request already exists.");
-            System.out.println("Status: " + claimStatus);
-            return;
-        }
+        System.out.print("College: ");
+        college = scanner.nextLine();
 
-        if (foundStatus.equals("CLAIMED")) {
-            System.out.println("This item has already been claimed.");
-            return;
-        }
+        System.out.print("Program and Section: ");
+        progAndSec = scanner.nextLine();
 
-        System.out.println("Item: " + foundItem);
-        System.out.println("Place found: " + foundPlace);
-        System.out.println("Distinguishing marks/Features of the items : " + foundMarks);
+        System.out.print("Claimed Item: ");
+        claimedItem = scanner.nextLine();
 
-        System.out.print("Is this your item? (yes/no): ");
-        answer = scanner.nextLine();
+        System.out.print("Date and Time of Claiming the Item: ");
+        claimingDate = scanner.nextLine();
 
-        if (answer.equalsIgnoreCase("yes")) {
-
-            System.out.print("Your full name: ");
-            claimantName = scanner.nextLine();
-
-            System.out.print("Your contact number: ");
-            claimantContact = scanner.nextLine();
-
-            System.out.print("Details to prove ownership: ");
-            claimDetails = scanner.nextLine();
-
-            foundStatus = "CLAIM REQUESTED";
-            claimStatus = "WAITING FOR STAFF VERIFICATION";
-
-            System.out.println("\nClaim request submitted!");
-            System.out.println("Claimant: " + claimantName);
-            System.out.println("Item: " + foundItem);
-            System.out.println("Status: " + claimStatus);
-            System.out.println("Please coordinate with the Local Student Council.");
-
-        } else if (answer.equalsIgnoreCase("no")) {
-
-            System.out.println("Claim cancelled.");
-
-        } else {
-
-            System.out.println("Invalid answer. Please enter yes or no.");
-        }
-    }
-
-    public static void seeItemStatus(){
-
-        String foundItem = "", foundPlace = "", foundMarks = "", foundStatus = "NO REPORT", foundName = "";
-    String claimantName = "", claimantContact = "", claimDetails = "", claimStatus = "NO CLAIM REQUEST";
-    String lostStatus = "", lostItem = "", lostName = "", lostPlace = "";
-
-    System.out.println("\n===== CHECK ITEM STATUS =====");
-
-    System.out.println("\n--- Lost Item ---");
-
-    if (lostStatus.equals("NO REPORT")) {
-        System.out.println("No lost item report available.");
-    } else {
-        System.out.println("Item: " + lostItem);
-        System.out.println("Reported by: " + lostName);
-        System.out.println("Last seen: " + lostPlace);
-        System.out.println("Status: " + lostStatus);
-    }
-
-    System.out.println("\n--- Found Item ---");
-
-    if (foundStatus.equals("NO REPORT")) {
-        System.out.println("No found item report available.");
-    } else {
-        System.out.println("Item: " + foundItem);
-        System.out.println("Found at: " + foundPlace);
-        System.out.println("Reported by: " + foundName);
-        System.out.println("Status: " + foundStatus);
-    }
-
-    System.out.println("\n--- Claim Request ---");
-
-    if (claimStatus.equals("NO CLAIM REQUEST")) {
-        System.out.println("No claim request submitted.");
-    } else {
-        System.out.println("Claimant: " + claimantName);
-        System.out.println("Contact: " + claimantContact);
-        System.out.println("Details: " + claimDetails);
-        System.out.println("Status: " + claimStatus);
-    }
-
-    if (!lostStatus.equals("NO REPORT")
-            && !foundStatus.equals("NO REPORT")) {
-
-        if (lostItem.equalsIgnoreCase(foundItem)) {
-            System.out.println("\nPossible match: Item names are the same.");
-            System.out.println("Staff must verify the actual item.");
-        } else {
-            System.out.println("\nNo match based on item names.");
-        }
-     }
-
+        System.out.println("\n===== CLAIM REQUEST SUBMITTED =====");
+        System.out.println("Name: " + name);
+        System.out.println("College: " + college);
+        System.out.println("Program and Section: " + progAndSec);
+        System.out.println("Claimed Item: " + claimedItem);
+        System.out.println("Date of Claiming: " + claimingDate);
+        System.out.println("Status: WAITING FOR VERIFICATION");
+        System.out.println("Please coordinate with the Local Student Council.");
+        System.out.println("=====================================================");
     }
 
     public static void viewSocialMediaPagesOfOrgs(){
@@ -469,9 +385,8 @@ public class LostAndFoundSystem {
         System.out.println("1. Report a lost item");
         System.out.println("2. Report a found item");
         System.out.println("3. Claim item");
-        System.out.println("4. Check item status");
-        System.out.println("5. View social media pages of other Local Student Councils");
-        System.out.println("6. Exit");
+        System.out.println("4. View social media pages of other Local Student Councils");
+        System.out.println("5. Exit");
         System.out.println("=====================================================");
         System.out.print("Your answer: ");
         int choice = scanner.nextInt();
