@@ -51,7 +51,7 @@ public class LostAndFoundSystem {
     public static void reportItemLost(){
         Scanner scanner = new Scanner(System.in);
 
-        String name, college, progAndSec, lostItem,recognizedMark, placeOfItem;
+        String name, college, progAndSec, lostItem, timeLost,recognizedMark, placeOfItem;
         String findLocation, numFloor, room, timeFrame;
         String contactNum, fbName, fbLink, otherContacts, confirmInfo ;
         
@@ -71,6 +71,9 @@ public class LostAndFoundSystem {
         
         System.out.println("Describe any distinguishing marks or features of the item/s (e.g., scratches, stickers, name tags, engravings): ");
         recognizedMark = scanner.nextLine();
+
+        System.out.println("When did you lose the item/s? (e.g., February 14,2026, 2:00 PM; 04/15/26 3:30 PM): ");
+        timeLost = scanner.nextLine();
 
         System.out.println("Where do you think you lost the item? List the places you visited before you noticed it was missing: ");
         placeOfItem = scanner.nextLine();
@@ -113,7 +116,7 @@ public class LostAndFoundSystem {
     public static void reportItemFound(){
          Scanner scanner = new Scanner(System.in);
 
-        String name, college, progAndSec, foundItem,recognizedMark, placeOfItem, identifyOwner;
+        String name, college, progAndSec, foundItem,recognizedMark, timeFound, placeOfItem, identifyOwner;
         String founderLocation, numFloor, room, timeFrame;
         String contactNum, fbName, fbLink, otherContacts, confirmInfo ;
         
@@ -137,6 +140,9 @@ public class LostAndFoundSystem {
 
         System.out.println("What details on the item/s could identify its owner (e.g., a name, ID, initials, or contact number)? Type N/A if there are none: ");
         identifyOwner = scanner.nextLine();
+
+        System.out.println("When did you find the item/s? (e.g., February 14,2026, 2:00 PM; 04/15/26 3:30 PM): ");
+        timeFound = scanner.nextLine();
 
         System.out.println("Where did you find the item/s?(e.g., Near Lover's Lane, Near Heroes' Park, Federizo hall 2f, at gate 2) ");
         placeOfItem = scanner.nextLine();
