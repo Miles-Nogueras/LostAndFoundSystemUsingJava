@@ -1,4 +1,3 @@
-import java.nio.channels.Pipe.SourceChannel;
 import java.util.Scanner;
 
 public class LostAndFoundSystem {
@@ -11,22 +10,29 @@ public class LostAndFoundSystem {
         switch (choice){
 
              case 1:
+                System.out.println("=========================================================================================================================================================");
                 System.out.printf("You chose to report a lost item(Option #%d).\n" , choice);
-                System.out.println("=====================================================");
+                System.out.println("=========================================================================================================================================================");
                 reportItemLost(); 
                 break;
         
              case 2:
+                System.out.println("=========================================================================================================================================================");
                 System.out.printf("You chose to report a found item(Option #%d).\n" , choice);
-                System.out.println("=====================================================");
+                System.out.println("=========================================================================================================================================================");
                 reportItemFound();
                 break;
             
             case 3:
+                System.out.println("=========================================================================================================================================================");
+                System.out.printf("We're glad to assist you in claiming your item. Please provide the necessary details below.(Option #%d)\n" , choice);
+                System.out.println();
+                System.out.println("================================ Claim Form ===============================================");
                 claimItem();
                 break;
             
             case 4:
+                System.out.println("Would you like to view the social media pages of other organizations for assistance? Kindly click on the options below.");
                 viewSocialMediaPagesOfOrgs();
                 break;
             
@@ -35,6 +41,7 @@ public class LostAndFoundSystem {
                 break;
             
             default:
+                System.out.println("=========================================================================================================================================================");
                 System.out.println("Invalid choice. Please enter a number from 1 to 6.");
 
      }
@@ -49,8 +56,7 @@ public class LostAndFoundSystem {
         String contactNum, fbName, fbLink, otherContacts, confirmInfo ;
         
         System.out.println("We're sorry to hear that you lost something. Please fill in the applicable details, or type \"N/A\" for fields that do not apply.");
-        System.out.println("=====================================================");
-       
+        System.out.println("=========================================================================================================================================================");
         System.out.print("Name: ");
         name = scanner.nextLine();
 
@@ -68,7 +74,7 @@ public class LostAndFoundSystem {
 
         System.out.println("Where do you think you lost the item? List the places you visited before you noticed it was missing: ");
         placeOfItem = scanner.nextLine();
-        System.out.println("=====================================================");
+        System.out.println("=========================================================================================================================================================");
 
         System.out.println("If your item is found, where can we usually find you?");
         findLocation = scanner.nextLine();
@@ -85,7 +91,7 @@ public class LostAndFoundSystem {
                 }
              }
 
-        System.out.println("=====================================================");
+        System.out.println("=========================================================================================================================================================");
         System.out.println("Kindly drop your contact details below.");
         System.out.print("Contact Number:");
         contactNum = scanner.nextLine();
@@ -100,7 +106,7 @@ public class LostAndFoundSystem {
         otherContacts = scanner.nextLine();
 
         System.out.println("Thank you for your cooperation. We'll do our best to find your item and contact you once it's found.");
-        System.out.println("=====================================================");                    
+        System.out.println("=========================================================================================================================================================");                  
             
     }
 
@@ -112,7 +118,7 @@ public class LostAndFoundSystem {
         String contactNum, fbName, fbLink, otherContacts, confirmInfo ;
         
         System.out.println("It seems like you've found an item. Please fill in the applicable details, or type \"N/A\" for fields that do not apply.");
-        System.out.println("=====================================================");
+        System.out.println("=========================================================================================================================================================");
        
         System.out.print("Name: ");
         name = scanner.nextLine();
@@ -134,7 +140,7 @@ public class LostAndFoundSystem {
 
         System.out.println("Where did you find the item/s?(e.g., Near Lover's Lane, Near Heroes' Park, Federizo hall 2f, at gate 2) ");
         placeOfItem = scanner.nextLine();
-        System.out.println("=====================================================");
+        System.out.println("=========================================================================================================================================================");
 
         System.out.println("Where can the owner usually find you to claim the item?");
         founderLocation = scanner.nextLine();
@@ -151,7 +157,7 @@ public class LostAndFoundSystem {
                 }
              }
 
-        System.out.println("=====================================================");
+        System.out.println("=========================================================================================================================================================");
         System.out.println("Kindly drop your contact details below.");
         System.out.print("Contact Number:");
         contactNum = scanner.nextLine();
@@ -167,8 +173,7 @@ public class LostAndFoundSystem {
 
         System.out.println("Thank you for reporting the item you found. Your honesty helps someone get their belongings back."); 
         System.out.println("We'll contact you if the owner needs to reach you.");
-        System.out.println("=====================================================");
-
+        System.out.println("=========================================================================================================================================================");
     }
 
     public static void claimItem(){
@@ -177,11 +182,6 @@ public class LostAndFoundSystem {
 
         String name, college, progAndSec;
         String claimedItem, claimingDate;
-
-        System.out.println("\n===== CLAIM AN ITEM =====");
-        System.out.println("Would you like to claim an item?");
-        System.out.println("Please fill in the details below.");
-        System.out.println("=====================================================");
 
         System.out.print("Name: ");
         name = scanner.nextLine();
@@ -217,7 +217,7 @@ public class LostAndFoundSystem {
          int collegeChoice;
 
             do {
-            System.out.println("\n===== STUDENT COUNCILS AND GOVERNMENT =====");
+            System.out.println("\n================================ Organizations ===============================================");
             System.out.println("1. Local Student Council (LSC)");
             System.out.println("2. Student Government (SG)");
             System.out.println("3. Return to Main Menu");
@@ -378,16 +378,15 @@ public class LostAndFoundSystem {
     public static void main(String[] args){
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("=====================================================");
-        System.out.println("Welcome to Bulacan State University's Lost and Found!");
-        System.out.println("=====================================================");
-        System.out.println("Enter your choice(1-6):");
+        System.out.println("=========================================================================================================================================================");
+        System.out.println("Welcome to Bulacan State University's \"Lost it, Post it, Found it!\" system");
+        System.out.println("=========================================================================================================================================================");
         System.out.println("1. Report a lost item");
         System.out.println("2. Report a found item");
         System.out.println("3. Claim item");
-        System.out.println("4. View social media pages of other Local Student Councils");
+        System.out.println("4. View social media pages of other organizations for assistance");
         System.out.println("5. Exit");
-        System.out.println("=====================================================");
+        System.out.println("=========================================================================================================================================================");
         System.out.print("Your answer: ");
         int choice = scanner.nextInt();
         chooseOption(choice);
